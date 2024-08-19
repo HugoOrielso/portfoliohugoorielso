@@ -26,7 +26,7 @@ const Projects = () => {
                             <div className="p-2">
                                 <div className="flex  flex-col sm:flex-row w-full justify-between items-start sm:items-start">
                                     <h3 className=" sm:text-xl text-cyan-500 font-bold">{item.title}</h3>
-                                    <span className="text-xs items-start flex "> {item.dates} </span>
+                                    <span className="text-xs items-start flex dark:text-white"> {item.dates} </span>
                                 </div>
                                 <p className="text-black dark:text-white overflow-hidden text-sm sm:text-base" style={{display: "-webkit-box", WebkitBoxOrient: "vertical", textOverflow: "ellipsis", WebkitLineClamp: 6, lineClamp: 6}}> {item.description} </p>
 
