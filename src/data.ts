@@ -79,9 +79,8 @@ export const data = {
             href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
           },
         ],
-        image: "./src/assets/managementRestaurant.webp",
         video:
-          "/assets/managementSystemVideo.mp4",
+          "/managementSystemVideo.mp4",
       },
       {
         title: "Pinturas PVC Color's",
@@ -104,8 +103,7 @@ export const data = {
             href: "https://github.com/HugoOrielso/pinturasPVCColorsProduction",
           },
         ],
-        image: "./src/assets/webPvcColors.webp",
-        video: "/assets/pvcVideo.mp4",
+        video: "/pvcVideo.mp4",
       },
       {
         title: "La Ragazza Riccia",
@@ -129,8 +127,7 @@ export const data = {
             href: "https://github.com/HugoOrielso/Test-La-Ragazza-Riccia",
           },
         ],
-        image: "./src/assets/laRagazzaTest.webp",
-        video: "/assets/testVideo.mp4",
+        video: "/testVideo.mp4",
       }
     ]
 } as const

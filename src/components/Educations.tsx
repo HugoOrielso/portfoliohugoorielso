@@ -1,6 +1,5 @@
 import BlurFade from "@/components/magicui/blur-fade"
 import { data } from "@/data"
-
 const Education = () => {
   return (
     <>

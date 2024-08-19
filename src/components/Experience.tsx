@@ -1,5 +1,7 @@
 import BlurFade from '@/components/magicui/blur-fade'
 import { data } from '@/data'
+
+
 const Experience = () => {
   return (
     <section className='flex flex-col gap-2 dark:text-white py-8'>
