@@ -8,7 +8,7 @@ export const data = {
           location: "Remote",
           alt: "logo pvc colors",
           title: "Frontend developer",
-          logoUrl: "./src/assets/logo-pvc.webp",
+          logoUrl: "./images/logo-pvc.webp",
           start: "January 2024",
           end: "February 2024",
           background: "#fff",
@@ -22,7 +22,7 @@ export const data = {
           location: "Remote",
           alt: "no logo",
           title: "Full stack developer",
-          logoUrl: "./src/assets/No_Logo_logo.svg",
+          logoUrl: "./images/No_Logo_logo.svg",
           start: "January 2021",
           end: "April 2021",
           background: "#000",
@@ -105,7 +105,7 @@ export const data = {
           },
         ],
         image: "./src/assets/webPvcColors.webp",
-        video: "./pvcVideo.mp4",
+        video: "./images/pvcVideo.mp4",
       },
       {
         title: "La Ragazza Riccia",
@@ -130,7 +130,7 @@ export const data = {
           },
         ],
         image: "./src/assets/laRagazzaTest.webp",
-        video: "./testVideo.mp4",
+        video: "./images/testVideo.mp4",
       }
     ]
 } as const
