@@ -81,7 +81,7 @@ export const data = {
         ],
         image: "./src/assets/managementRestaurant.webp",
         video:
-          "./managementSystemVideo.mp4",
+          "/assets/managementSystemVideo.mp4",
       },
       {
         title: "Pinturas PVC Color's",
@@ -105,7 +105,7 @@ export const data = {
           },
         ],
         image: "./src/assets/webPvcColors.webp",
-        video: "./images/pvcVideo.mp4",
+        video: "/assets/pvcVideo.mp4",
       },
       {
         title: "La Ragazza Riccia",
@@ -130,7 +130,7 @@ export const data = {
           },
         ],
         image: "./src/assets/laRagazzaTest.webp",
-        video: "./images/testVideo.mp4",
+        video: "/assets/testVideo.mp4",
       }
     ]
 } as const
