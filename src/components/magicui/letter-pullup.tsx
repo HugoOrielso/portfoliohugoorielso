@@ -38,7 +38,7 @@ export default function LetterPullup({
           animate="animate"
           custom={i}
           className={cn(
-            "font-display text-center text-base sm:text-2xl font-bold tracking-[-0.02em] text-yellow-500 drop-shadow-sm   ",
+            "font-display text-lg text-center  sm:text-2xl font-bold tracking-[-0.02em] text-yellow-500 drop-shadow-sm   ",
             className,
           )}
         >

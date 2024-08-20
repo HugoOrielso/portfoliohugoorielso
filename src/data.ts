@@ -2,20 +2,6 @@
 export const data = {
     work: [
         {
-          company: "Pinturas PVC Color's",
-          href: "https://pinturaspvccolors.com/",
-          badges: [],
-          location: "Remote",
-          alt: "logo pvc colors",
-          title: "Frontend developer",
-          logoUrl: "/logo-pvc.webp",
-          start: "Jan 2024",
-          end: "Feb 2024",
-          background: "#fff",
-          description:
-            "I Developed a website using React and CSS to display products and company information for PVC Color’s. I designed an attractive and responsive user interface, highlighting the variety of products offere.",
-        },
-        {
           company: "Restaurant management system",
           badges: [],
           href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
@@ -42,6 +28,20 @@ export const data = {
           background: "#fff",
           description:
             "I developed a test to recommend products for the company La Ragazza Riccia. The application is being developed in React.js with TypeScript, and is using Zustand as the global state provider for the app, CSS is the primary tool for styling the page, the test consists of a series of questions, and based on the answers, which are weighted and follow patterns provided by the company, a product recommendation is made to the users of the application and is send a email with the reseult.",
+        },
+        {
+          company: "Pinturas PVC Color's",
+          href: "https://pinturaspvccolors.com/",
+          badges: [],
+          location: "Remote",
+          alt: "logo pvc colors",
+          title: "Frontend developer",
+          logoUrl: "/logo-pvc.webp",
+          start: "Jan 2024",
+          end: "Feb 2024",
+          background: "#fff",
+          description:
+            "I Developed a website using React and CSS to display products and company information for PVC Color’s. I designed an attractive and responsive user interface, highlighting the variety of products offere.",
         }
     ],
     education: [
@@ -129,5 +129,45 @@ export const data = {
         ],
         video: "/testVideo.mp4",
       }
-    ]
+    ],
+    skills: [
+      {
+        name: "React",
+        level: null
+      },
+      {
+        name: "Node",
+        level: null
+      },
+      {
+        name: "Css",
+        level: null
+      },
+      {
+        name: "Tailwind",
+        level: null
+      },
+      {
+        name: "Mysql",
+        level: null
+      },
+      {
+        name: "Mongo",
+        level: null
+      },
+      {
+        name: "Express",
+        level: null
+      },
+      {
+        name: "Java",
+        level: "learning"
+      },
+      {
+        name: "Spring",
+        level: "learning"
+      }
+    ],
+    links: [
+      {name:"About", section:"about"}, {name:"Experience", section: "experience"}, {name:"Projects",section:"projects"}, {name:"Education",section:"education"}, {name:"Skills",section:"skills"}]
 } as const

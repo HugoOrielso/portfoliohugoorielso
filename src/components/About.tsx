@@ -1,5 +1,6 @@
 import imageCV from '../assets/cv.webp'
 import Meteors from "../components/magicui/meteors";
+import Iconst from './Iconst';
 import BlurFade from './magicui/blur-fade';
 import BlurIn from './magicui/blur-in';
 import LetterPullup from './magicui/letter-pullup';
@@ -15,8 +16,9 @@ export function MeteorDemo() {
 }
 
 const About = () => {
+
   return (
-    <section className='flex relative w-full items-center justify-center gap-10 overflow-hidden'>
+    <section className='flex pt-8 sm:pt-10 relative w-full items-center justify-center gap-10 overflow-hidden' id='about'>
     <div className="absolue flex  w-full flex-col items-start justify-start overflow-hidden rounded-lg bg-background ">
       <Meteors number={30} />
         <div className='flex flex-col w-full items-center justify-center z-10 gap-2 mt-4'>
@@ -35,13 +37,20 @@ const About = () => {
             </div>
             <div className='w-full flex flex-col text-black dark:text-white'>
               <BlurFade delay={0.05}>
-                <h2 className='font-bold sm:text-2xl text-base duration-300'>About</h2>
+                <h2 className='font-bold sm:text-3xl text-lg duration-300 dark:text-white'>About</h2>
               </BlurFade>
                   <BlurFade delay={0.25} inView>
-                    <p className='dark:text-zinc-200 text-zinc-900 text-xs block w-full sm:text-base my-2 duration-300'>
-                      <span className='text-yellow-500'>Full Stack Developer</span> with two years of experience in creating web applications and APIs using Node.js and React.js. I have experience in creating REST applications, managing relational databases like MySQL and non-relational databases like MongoDB. Additionally, i'm learning spring boot. I seek to contribute to innovative projects and continue learning in the field of web development.
+                    <p className='dark:text-zinc-200 text-zinc-900 text-xs block w-full sm:text-base my-2 duration-300 text-balance'>
+                      <span className='text-yellow-500 font-bold'>Full Stack Developer</span> with +2 years of experience in creating web applications and APIs using <span className='text-yellow-300'>Node.js</span>  and <span className='text-yellow-300'>React.js</span> .I have experience in creating REST applications, managing relational databases like <span className='text-yellow-300'>MySQL</span> and non-relational databases like <span className='text-yellow-300'>MongoDB</span>. Additionally, i'm learning <span className='text-yellow-300'>Spring Boot</span>. I seek to contribute to innovative projects and continue learning in the field of web development.
                     </p>
                   </BlurFade>
+            </div>
+            <div className='flex items-center w-full py-1'>
+              <BlurFade  delay={0.05} inView>
+              <article className='flex flex-wrap items-center text-xs dark:text-white gap-1 border border-zinc-800 hover:border-zinc-900 dark:border-zinc-700 dark:hover:border-zinc-200 p-1 rounded duration-300'>
+                <Iconst icon='gmail' weight="30"/> <p >orielso.lozano15@gmail.com</p> 
+              </article>
+              </BlurFade>
             </div>
 
         </div>

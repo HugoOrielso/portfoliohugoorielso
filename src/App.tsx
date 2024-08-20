@@ -3,12 +3,15 @@ import About from './components/About'
 import { DockDemo } from './components/DockDemo'
 import Education from './components/Educations'
 import Experience from './components/Experience'
+import Navbar from './components/Navbar'
 import Projects from './components/Projects'
+import Skills from './components/Skills'
 
 function App() {
 
   return (
     <>
+    <Navbar/>
     <div className='dark:bg-zinc-black flex h-screen grow flex-1 flex-col'>
 
 
@@ -17,8 +20,9 @@ function App() {
           <div className='flex flex-col grow  max-w-[850px]'>
             <About/>
             <Experience/>
-            <Education/>
             <Projects/>
+            <Education/>
+            <Skills/>
           </div>
         </div>
       </main>
