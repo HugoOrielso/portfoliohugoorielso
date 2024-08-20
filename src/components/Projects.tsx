@@ -43,7 +43,7 @@ const Projects = () => {
                                 <div className="flex gap-x-3  my-2">
                                 {item.links.map(l=>{
                                     return(
-                                        <a href={l.href} key={crypto.randomUUID()} className="bg-black rounded p-1 text-white transition-all duration-300 hover:scale-110">
+                                        <a href={l.href} target="_blank" key={crypto.randomUUID()} className="bg-black rounded p-1 text-white transition-all duration-300 hover:scale-110">
                                             <Iconst icon={`${l.type.toLocaleLowerCase()}`} weight={null}/>
                                         </a>
                                     )
