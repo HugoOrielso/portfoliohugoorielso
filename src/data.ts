@@ -152,6 +152,10 @@ export const dataEnglish = {
         level: null
       },
       {
+        name: "Git",
+        level: null
+      },
+      {
         name: "Mongo",
         level: null
       },
@@ -319,6 +323,10 @@ export const dataSpanish = {
       level: null
     },
     {
+      name: "Git",
+      level: null
+    },
+    {
       name: "Node",
       level: null
     },
@@ -333,10 +341,6 @@ export const dataSpanish = {
     {
       name: "Spring",
       level: "Aprendiendo"
-    },
-    {
-      name: "Git",
-      level: null
     }
   ],
   links: [
