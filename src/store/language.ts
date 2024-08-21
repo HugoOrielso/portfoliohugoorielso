@@ -6,7 +6,7 @@ interface StateLanguage {
     changeLanguage: (idiom:string) => void
 }
 
-export const UseQuestionsStore = create<StateLanguage>()(persist((set) => {
+export const UseLanguageStore = create<StateLanguage>()(persist((set) => {
     return {
         language: 'spanish',
         changeLanguage(idiom) {
@@ -14,5 +14,5 @@ export const UseQuestionsStore = create<StateLanguage>()(persist((set) => {
         },
     }
 }, {
-    name: 'test'
+    name: 'language'
 }))
