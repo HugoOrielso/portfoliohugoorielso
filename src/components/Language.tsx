@@ -12,7 +12,9 @@ const Language = () => {
     
     return (
     <div className="relative w-full max-w-[6em]">
+        <label htmlFor="language_selection"></label>
         <select
+            id='language_selection'
             name={language}
             value={language}
             onChange={handleLanguage}

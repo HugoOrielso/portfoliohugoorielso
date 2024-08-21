@@ -49,7 +49,7 @@ const About = () => {
                 </div>
                 <div className='max-w-36'>
                   <BlurFade delay={0.05}>
-                    <img src={imageCV} alt="logo Hugo Orielso" className='object-contain aspect-auto  rounded-full w-24 h-'/>
+                    <img src={imageCV} width={"100%"} height={"100%"} alt="logo Hugo Orielso" className='object-contain aspect-auto  rounded-full w-24 h-'/>
                   </BlurFade>
                 </div>  
             </div>
