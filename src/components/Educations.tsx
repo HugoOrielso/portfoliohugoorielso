@@ -1,13 +1,14 @@
 import BlurFade from "@/components/magicui/blur-fade"
 import { dataEnglish, dataSpanish } from "@/data"
 import { UseLanguageStore } from "@/store/language"
+import Languages from "./Languages"
 
 const Education = () => {
     const language = UseLanguageStore(state=>state.language)
-  return (
+    return (
     <>
         <section  className="flex flex-col w-full mt-2 pt-14 gap-4" id="education">
-            <BlurFade delay={0}>
+            <BlurFade delay={0.01}>
                 {language === 'english' &&
                     <h2 className="font-bold sm:text-2xl dark:text-white text-lg duration-300">Education</h2>
                 }
@@ -34,6 +35,9 @@ const Education = () => {
                             </div>
                         </div>
                     </div> 
+                    <div className="mt-3">
+                        <Languages/>
+                    </div>
                     </BlurFade>
                     )
                 })
@@ -56,8 +60,12 @@ const Education = () => {
                             <div>
                                 <p className="dark:text-white flex w-full text-xs sm:text-sm tabular-nums text-muted-foreground duration-300"> {item.start} - {item.end}</p>
                             </div>
+
                         </div>
                     </div> 
+                    <div className="mt-3">
+                        <Languages/>
+                    </div>
                     </BlurFade>
                     )
                 })

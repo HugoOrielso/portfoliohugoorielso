@@ -165,13 +165,14 @@ export const dataEnglish = {
       },
       {
         name: "Java",
-        level: "learning"
+        level: "Learning"
       },
       {
         name: "Spring",
-        level: "learning"
+        level: "Learning"
       }
     ],
+    languages:["Spanish", "English"],
     links: [
       {name:"About", section:"about"}, {name:"Experience", section: "experience"}, {name:"Projects",section:"projects"}, {name:"Education",section:"education"}, {name:"Skills",section:"skills"}]
 } as const
@@ -260,7 +261,7 @@ export const dataSpanish = {
       href: "https://pinturaspvccolors.com/",
       dates: "Dic 2024 - Ene 2024",
       active: true,
-      description: "Desarrollé un sitio web usando React y CSS para mostrar productos e información de la empresa PVC Color’s. Diseñé una interfaz de usuario atractiva y receptiva, destacando la variedad de productos ofrecidos.",
+      description: "Creé un sitio web utilizando React y CSS para exhibir los productos y la información de la empresa PVC Color's. Diseñé una interfaz de usuario atractiva y adaptable, resaltando la amplia gama de productos disponibles categorizados por líneas.",
       technologies: [
         "react",
         "css"
@@ -282,7 +283,7 @@ export const dataSpanish = {
       href: "https://test-la-ragazza-riccia.vercel.app/",
       dates: "Jul 2024 - Ago 2024",
       active: true,
-      description: "Desarrollé una prueba de recomendación de productos para La Ragazza Riccia utilizando React.js con TypeScript. La aplicación utiliza Zustand para la gestión de estado global y CSS para el diseño. La prueba consiste en una serie de preguntas ponderadas y, según las respuestas del usuario, la aplicación proporciona una recomendación de productos. El resultado también se envía al usuario por correo electrónico.",
+      description: "Desarrollé una prueba de recomendación de productos para la empresa La Ragazza Riccia utilizando React.js con TypeScript. La aplicación consiste en una serie de preguntas ponderadas y, según las respuestas del usuario, la aplicación proporciona una recomendación de productos. El resultado también se envía al usuario por correo electrónico.",
       technologies: [
         "react",
         "ts",
@@ -307,6 +308,10 @@ export const dataSpanish = {
       level: null
     },
     {
+      name: "Node",
+      level: null
+    },
+    {
       name: "Css",
       level: null
     },
@@ -319,15 +324,11 @@ export const dataSpanish = {
       level: null
     },
     {
-      name: "Mongo",
-      level: null
-    },
-    {
       name: "Git",
       level: null
     },
     {
-      name: "Node",
+      name: "Mongo",
       level: null
     },
     {
@@ -343,6 +344,8 @@ export const dataSpanish = {
       level: "Aprendiendo"
     }
   ],
+  languages:["Español", "Inglés"],
   links: [
-    {name:"Sobre mí", section:"about"}, {name:"Experiencia", section: "experience"}, {name:"Proyectos",section:"projects"}, {name:"Educación",section:"education"}, {name:"Habilidades",section:"skills"}]
+    {name:"Sobre mí", section:"about"}, {name:"Experiencia", section: "experience"}, {name:"Proyectos",section:"projects"}, {name:"Educación",section:"education"}, {name:"Habilidades",section:"skills"}
+  ]
 } as const
