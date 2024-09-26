@@ -4,7 +4,7 @@ export const dataEnglish = {
         {
           company: "Restaurant management system",
           badges: [],
-          href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+          href: "https://github.com/HugoOrielso/restaurantsManager",
           location: "Remote",
           alt: "no logo",
           title: "Full stack developer",
@@ -58,7 +58,7 @@ export const dataEnglish = {
     projects: [
       {
         title: "Restaurant management system",
-        href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+        href: "https://github.com/HugoOrielso/restaurantsManager",
         dates: "Jan 2024 - Aug 2024",
         active: true,
         description:
@@ -72,11 +72,11 @@ export const dataEnglish = {
         links: [
           {
             type: "Website",
-            href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+            href: "https://github.com/HugoOrielso/restaurantsManager",
           },
           {
             type: "Source",
-            href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+            href: "https://github.com/HugoOrielso/restaurantsManager",
           },
         ],
         video:
@@ -182,7 +182,7 @@ export const dataSpanish = {
       {
         company: "Sistema de gestión de restaurantes",
         badges: [],
-        href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+        href: "https://github.com/HugoOrielso/restaurantsManager",
         location: "Remote",
         alt: "no logo",
         title: "Full stack developer",
@@ -233,7 +233,7 @@ export const dataSpanish = {
   projects: [
     {
       title: "Sistema de gestión de restaurantes",
-      href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+      href: "https://github.com/HugoOrielso/restaurantsManager",
       dates: "Ene 2024 - Ago 2024",
       active: true,
       description: "Desarrollé una aplicación web para la gestión de restaurantes, con funcionalidades como creación de pedidos, gestión de inventarios, autenticación de roles de usuario y generación de facturas. Implementé un sistema de autenticación y autorización de usuarios con Node.js usando JWT, utilizando middlewares para verificar identidades y roles (admin, mesero, cocinero, repartidor), junto con funcionalidades adicionales.",
@@ -246,11 +246,11 @@ export const dataSpanish = {
       links: [
         {
           type: "Website",
-          href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+          href: "https://github.com/HugoOrielso/restaurantsManager",
         },
         {
           type: "Source",
-          href: "https://github.com/HugoOrielso/aplicationAdministrationRestaurants",
+          href: "https://github.com/HugoOrielso/restaurantsManager",
         },
       ],
       video:
