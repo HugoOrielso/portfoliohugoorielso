@@ -31,7 +31,7 @@ export const dataEnglish = {
         },
         {
           company: "Pinturas PVC Color's",
-          href: "https://pinturaspvccolors.com/",
+          href: "https://pvc-colors-code.vercel.app/",
           badges: [],
           location: "Remote",
           alt: "logo pvc colors",
@@ -84,7 +84,7 @@ export const dataEnglish = {
       },
       {
         title: "Pinturas PVC Color's",
-        href: "https://pinturaspvccolors.com/",
+        href: "https://pvc-colors-code.vercel.app/",
         dates: "Dec 2024 - Jan 2024",
         active: true,
         description:
@@ -96,7 +96,7 @@ export const dataEnglish = {
         links: [
           {
             type: "Website",
-            href: "https://pinturaspvccolors.com/",
+            href: "https://pvc-colors-code.vercel.app/",
           },
           {
             type: "Source",
@@ -207,7 +207,7 @@ export const dataSpanish = {
       },
       {
         company: "Pinturas PVC Color's",
-        href: "https://pinturaspvccolors.com/",
+        href: "https://pvc-colors-code.vercel.app/",
         badges: [],
         location: "Remote",
         alt: "logo pvc colors",
@@ -258,7 +258,7 @@ export const dataSpanish = {
     },
     {
       title: "Pinturas PVC Color's",
-      href: "https://pinturaspvccolors.com/",
+      href: "https://pvc-colors-code.vercel.app/",
       dates: "Dic 2024 - Ene 2024",
       active: true,
       description: "Creé un sitio web utilizando React y CSS para exhibir los productos y la información de la empresa PVC Color's. Diseñé una interfaz de usuario atractiva y adaptable, resaltando la amplia gama de productos disponibles categorizados por líneas.",
@@ -269,7 +269,7 @@ export const dataSpanish = {
       links: [
         {
           type: "Website",
-          href: "https://pinturaspvccolors.com/",
+          href: "https://pvc-colors-code.vercel.app/",
         },
         {
           type: "Source",
