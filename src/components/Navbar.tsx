@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import Language from './Language';
 import { UseLanguageStore } from '@/store/language';
 const Navbar = () => {
+    
     const language = UseLanguageStore(state => state.language)
     const [open,setOpen] = useState<boolean>(false)
     const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, id: string) => {

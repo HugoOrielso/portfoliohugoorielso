@@ -66,8 +66,12 @@ const Projects = () => {
                 return(
                     <BlurFade delay={0.05} inView key={crypto.randomUUID()}>
                     <div key={crypto.randomUUID()} className="flex mb-4 flex-col sm:grid grid-cols-[35%,1fr] sm:max-h-[300px] h-full rounded-lg border dark:hover:border-zinc-200 hover:border-zinc-950 border-zinc-300 dark:border-zinc-700 overflow-hidden   duration-300">
-                        <div className="flex items-center justify-center w-full p-0 sm:p-1 bg-gradient-to-r from-blue-200 to-white dark:from-slate-700 dark:to-[#0B0B0B] flex-col overflow-hidden duration-300 hover:shadow-lg transition-all object-cover ease-out h-full">
-                            <video autoPlay loop muted className="rounded-sm aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full">
+                        <div className="flex items-center z-10 relative justify-center w-full p-0 sm:p-1 bg-gradient-to-r from-blue-200 to-white dark:from-slate-700 dark:to-[#0B0B0B] flex-col overflow-hidden duration-300 hover:shadow-lg transition-all object-cover ease-out h-full">
+                            <video autoPlay loop muted className="rounded-sm z-10 aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full">
+                                <source src={item.video}/>
+                                El video no carga en tu dispositivo
+                            </video>
+                            <video autoPlay loop muted className="rounded-sm absolute aspect-auto overflow-hidden    w-full  contrast-125 backdrop:  blur-lg z-[1]  object-cover transition bg-white ">
                                 <source src={item.video}/>
                                 El video no carga en tu dispositivo
                             </video>
