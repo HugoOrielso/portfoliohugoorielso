@@ -7,6 +7,7 @@ import Skills from './Skills'
 import { DockDemo } from './DockDemo'
 
 const Inicio = () => {
+  
   return (
     <>
     <Navbar/>

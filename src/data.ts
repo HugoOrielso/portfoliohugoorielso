@@ -14,6 +14,7 @@ export const dataEnglish = {
           background: "#000",
           description:
             "I developed a web application for restaurant management, including functionalities for order creation, stock management, user role authentication, and invoice generation. I implemented a user authentication and authorization system using Node.js with JWT, using middlewares to verify identity and roles (admin, waiter, cook, delivery person) and more funcionalities.",
+          details: ""
         },
         {
           company: "La Ragazza Riccia",
@@ -31,7 +32,7 @@ export const dataEnglish = {
         },
         {
           company: "Pinturas PVC Color's",
-          href: "https://pvc-colors-code.vercel.app/",
+          href: "https://www.pinturaspvccolors.com/",
           badges: [],
           location: "Remote",
           alt: "logo pvc colors",
@@ -57,6 +58,7 @@ export const dataEnglish = {
     ],
     projects: [
       {
+        id: 1,
         title: "Restaurant management system",
         href: "https://github.com/HugoOrielso/restaurantsManager",
         dates: "Jan 2024 - Aug 2024",
@@ -83,8 +85,9 @@ export const dataEnglish = {
           "/managementSystemVideo.mp4",
       },
       {
+        id: 2,
         title: "Pinturas PVC Color's",
-        href: "https://pvc-colors-code.vercel.app/",
+        href: "https://www.pinturaspvccolors.com/",
         dates: "Dec 2024 - Jan 2024",
         active: true,
         description:
@@ -96,7 +99,7 @@ export const dataEnglish = {
         links: [
           {
             type: "Website",
-            href: "https://pvc-colors-code.vercel.app/",
+            href: "https://www.pinturaspvccolors.com/",
           },
           {
             type: "Source",
@@ -106,6 +109,7 @@ export const dataEnglish = {
         video: "/pvcVideo.mp4",
       },
       {
+        id: 3,
         title: "La Ragazza Riccia",
         href: "https://test-la-ragazza-riccia.vercel.app/",
         dates: "Jul 2024 - Aug 2024",
@@ -207,7 +211,7 @@ export const dataSpanish = {
       },
       {
         company: "Pinturas PVC Color's",
-        href: "https://pvc-colors-code.vercel.app/",
+        href: "https://www.pinturaspvccolors.com/",
         badges: [],
         location: "Remote",
         alt: "logo pvc colors",
@@ -232,6 +236,7 @@ export const dataSpanish = {
   ],
   projects: [
     {
+      id: 1,
       title: "Sistema de gestión de restaurantes",
       href: "https://github.com/HugoOrielso/restaurantsManager",
       dates: "Ene 2024 - Ago 2024",
@@ -257,8 +262,9 @@ export const dataSpanish = {
         "/managementSystemVideo.mp4",
     },
     {
+      id:2,
       title: "Pinturas PVC Color's",
-      href: "https://pvc-colors-code.vercel.app/",
+      href: "https://www.pinturaspvccolors.com/",
       dates: "Dic 2024 - Ene 2024",
       active: true,
       description: "Creé un sitio web utilizando React y CSS para exhibir los productos y la información de la empresa PVC Color's. Diseñé una interfaz de usuario atractiva y adaptable, resaltando la amplia gama de productos disponibles categorizados por líneas.",
@@ -279,6 +285,7 @@ export const dataSpanish = {
       video: "/pvcVideo.mp4",
     },
     {
+      id:3,
       title: "La Ragazza Riccia",
       href: "https://test-la-ragazza-riccia.vercel.app/",
       dates: "Jul 2024 - Ago 2024",

@@ -2,9 +2,23 @@ import { dataEnglish, dataSpanish } from "@/data"
 import Iconst from "./Iconst"
 import BlurFade from "@/components/magicui/blur-fade"
 import { UseLanguageStore } from "@/store/language"
+import { useNavigate } from "react-router-dom"
+import { flushSync } from "react-dom"
 
 const Projects = () => {
     const language = UseLanguageStore(state=>state.language)
+    const navigate = useNavigate();
+    const handleProjectClick = (projectId: number) => {
+        if (document.startViewTransition) {
+          document.startViewTransition(() => {
+            flushSync(()=>{
+                navigate(`/project/${projectId}`);
+            })
+          });
+        } else {
+            navigate(`/project/${projectId}`);
+        }
+      };
     return (
     <>
         <section id="projects" className="grid grid-cols-1 place-items-start place-content-center pt-14">
@@ -20,36 +34,43 @@ const Projects = () => {
             {dataEnglish.projects.map((item)=>{
                 return(
                     <BlurFade delay={0.05} inView key={crypto.randomUUID()}>
-                    <div key={crypto.randomUUID()} className="flex mb-4 flex-col sm:grid grid-cols-[35%,1fr] sm:max-h-[300px] h-full rounded-lg border dark:hover:border-zinc-200 hover:border-zinc-950 border-zinc-300 dark:border-zinc-700 overflow-hidden   duration-300">
+                    <button key={crypto.randomUUID()} className="flex mb-4 flex-col sm:grid grid-cols-[35%,1fr] sm:max-h-[300px] h-full rounded-lg border dark:hover:border-zinc-200 hover:border-zinc-950 border-zinc-300 dark:border-zinc-700 overflow-hidden   duration-300" 
+                    onClick={() => handleProjectClick(item.id)}>
                         <div className="flex items-center z-10 relative justify-center w-full p-0 sm:p-1 bg-gradient-to-r from-blue-200 to-white dark:from-slate-700 dark:to-[#0B0B0B] flex-col overflow-hidden duration-300 hover:shadow-lg transition-all object-cover ease-out h-full">
-                            <video autoPlay loop muted className="rounded-sm z-10 aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full">
+                            <video autoPlay loop muted className="rounded-sm z-10 aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full" style={{viewTransitionName: `video-${item.id}`}}>
                                 <source src={item.video}/>
                                 El video no carga en tu dispositivo
                             </video>
-                            <video autoPlay loop muted className="rounded-sm absolute aspect-auto overflow-hidden    w-full  contrast-125 backdrop:  blur-lg z-[1]  object-cover transition bg-white ">
-                                <source src={item.video}/>
+                            <video autoPlay loop muted className="rounded-sm absolute aspect-auto overflow-hidden    w-full  contrast-125 backdrop:  blur-lg z-[1]  object-cover transition bg-white" 
+                            style={{viewTransitionName: `video-reflection-${item.id}`}}
+                            >
+                                <source src={item.video} />
                                 El video no carga en tu dispositivo
                             </video>
                         </div>
                         <div className="flex flex-col items-start justify-between bg-gradient-to-r from-white to-blue-100 dark:from-[#0B0B0B] dark:to-slate-900">
                             <div className="p-2">
                                 <div className="flex  flex-col sm:flex-row w-full justify-between items-start sm:items-start">
-                                    <h3 className=" sm:text-xl dark:text-yellow-500  font-bold">{item.title}</h3>
-                                    <span className="text-xs items-start flex dark:text-white"> {item.dates} </span>
+                                <h3 style={{viewTransitionName: `title-${item.id}`}} className=" sm:text-xl dark:text-yellow-500  font-bold">{item.title}</h3>
+                                <span className="text-xs items-start flex dark:text-white"> {item.dates} </span>
                                 </div>
-                                <p className="text-black dark:text-white overflow-hidden text-xs sm:text-base line-clamp-6" style={{display: "-webkit-box", WebkitBoxOrient: "vertical", textOverflow: "ellipsis", WebkitLineClamp: 6, lineClamp: 6}}> {item.description} </p>
+                                <p className="text-black dark:text-white overflow-hidden text-xs sm:text-base line-clamp-6 text-start"  style={{viewTransitionName: `description-${item.id}`}}> {item.description} </p>
                             </div>
                             <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-3  p-2">
                                 <div className="flex gap-2 flex-wrap">
+
                                     {item.technologies.map((tec)=>{
                                         return(
-                                            <div key={crypto.randomUUID()} className="flex items-center rounded-md border border-zinc-200 hover:border-zinc-900 bg-secondary px-1  dark:text-zinc-300 boder dark:border-zinc-700 dark:hover:border-zinc-100 duration-300 bg-zinc-900 dark:bg-zinc-100">
+                                            <div key={crypto.randomUUID()} className="flex items-center rounded-md border border-zinc-200 hover:border-zinc-900 bg-secondary px-1  dark:text-zinc-300 boder dark:border-zinc-700 dark:hover:border-zinc-100 duration-300 bg-zinc-900 dark:bg-zinc-100"
+                                            style={{viewTransitionName: `icon-${tec}-${item.title}`}}
+                                            >
                                                 <Iconst icon={tec} weight={null}/>
                                             </div>
                                         )
                                     })}
                                 </div>
-                                <div className="flex gap-x-3  my-2">
+                                <div className="flex gap-x-3 my-2">
+
                                 {item.links.map(l=>{
                                     return(
                                         <a href={l.href} target="_blank" key={crypto.randomUUID()} className="bg-black rounded p-1 text-white transition-all duration-300 hover:scale-110">
@@ -60,7 +81,7 @@ const Projects = () => {
                             </div>
                             </div>
                         </div>
-                    </div>
+                    </button>
                     </BlurFade>
                 )
             })}
@@ -69,13 +90,14 @@ const Projects = () => {
             {dataSpanish.projects.map((item)=>{
                 return(
                     <BlurFade delay={0.05} inView key={crypto.randomUUID()}>
+                    <button style={{viewTransitionName: `video-${item.id}`}} onClick={()=>{handleProjectClick(item.id) }} >
                     <div key={crypto.randomUUID()} className="flex mb-4 flex-col sm:grid grid-cols-[35%,1fr] sm:max-h-[300px] h-full rounded-lg border dark:hover:border-zinc-200 hover:border-zinc-950 border-zinc-300 dark:border-zinc-700 overflow-hidden   duration-300">
                         <div className="flex items-center z-10 relative justify-center w-full p-0 sm:p-1 bg-gradient-to-r from-blue-200 to-white dark:from-slate-700 dark:to-[#0B0B0B] flex-col overflow-hidden duration-300 hover:shadow-lg transition-all object-cover ease-out h-full">
-                            <video autoPlay loop muted className="rounded-sm z-10 aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full">
-                                <source src={item.video}/>
+                            <video autoPlay loop muted className="rounded-sm z-10 aspect-auto overflow-hidden sm:h-full sm:w-full max-h-[300px] w-full h-full" style={{viewTransitionName: `video-${item.id}`}}>
+                                <source src={item.video} />
                                 El video no carga en tu dispositivo
                             </video>
-                            <video autoPlay loop muted className="rounded-sm absolute aspect-auto overflow-hidden    w-full  contrast-125 backdrop:  blur-lg z-[1]  object-cover transition bg-white ">
+                            <video autoPlay loop muted className="rounded-sm absolute aspect-auto overflow-hidden    w-full  contrast-125 backdrop:  blur-lg z-[1]  object-cover transition bg-white " style={{viewTransitionName: `video-${item.id}`}}>
                                 <source src={item.video}/>
                                 El video no carga en tu dispositivo
                             </video>
@@ -83,10 +105,10 @@ const Projects = () => {
                         <div className="flex flex-col items-start justify-between bg-gradient-to-r from-white to-blue-100 dark:from-[#0B0B0B] dark:to-slate-900">
                             <div className="p-2">
                                 <div className="flex  flex-col sm:flex-row w-full justify-between items-start sm:items-start">
-                                    <h3 className=" sm:text-xl text-yellow-500 font-bold">{item.title}</h3>
-                                    <span className="text-xs items-start flex dark:text-white"> {item.dates} </span>
+                                <h3 style={{viewTransitionName: `title-${item.id}`}} className=" sm:text-xl dark:text-yellow-500  font-bold">{item.title}</h3>
+                                <span className="text-xs items-start flex dark:text-white"> {item.dates} </span>
                                 </div>
-                                <p className="text-black dark:text-white overflow-hidden text-xs sm:text-base" style={{display: "-webkit-box", WebkitBoxOrient: "vertical", textOverflow: "ellipsis", WebkitLineClamp: 6, lineClamp: 6}}> {item.description} </p>
+                                <p className="text-black dark:text-white overflow-hidden text-xs sm:text-base line-clamp-6 text-start"  style={{viewTransitionName: `description-${item.id}`}}> {item.description} </p>
                             </div>
                             <div className="flex flex-col sm:flex-row items-center justify-between w-full gap-3  p-2">
                                 <div className="flex gap-2 flex-wrap">
@@ -111,6 +133,7 @@ const Projects = () => {
                             </div>
                         </div>                       
                     </div>
+                    </button>
                     </BlurFade>
                 )
             })}
