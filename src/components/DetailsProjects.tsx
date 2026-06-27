@@ -1,59 +1,287 @@
 import { useParams } from "react-router-dom"
 import { DockDemo } from "./DockDemo"
-
 import { dataEnglish, dataSpanish } from "@/data"
 import NavBarDetails from "./NavBarDetails"
 import Iconst from "./Iconst"
+import { UseLanguageStore } from "@/store/language"
+import { useLayoutEffect } from "react"
 
 const DetailsProjects = () => {
-    const {id} =  useParams()
+  const { id } = useParams()
+  const language = UseLanguageStore(state => state.language)
 
+  const data = language === "spanish" ? dataSpanish : dataEnglish
+  const project = data.projects.find(item => item.id === Number(id))
 
-    const data = dataEnglish.projects.find(item=> item.id === Number(id))
-    console.log(dataSpanish);
-    
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" })
+  }, [id])
+
+  if (!project) {
     return (
-    <div className="min-h-screen">
-      <NavBarDetails/>
-    <div className='dark:bg-zinc-black flex min-h-full items-center justify-center grow flex-col'>
-      <main className='z-10 flex grow flex-1 h-full items-center justify-center'>
-        <div className='flex flex-col grow '>
-          <div>
-          <div className="flex items-center z-20 relative justify-center w-full pt-[50px] md:px-0 pt-[50 px] mb-4"  >
-            <video autoPlay loop muted className="rounded-sm z-20 aspect-auto object-cover   w-full max-w-[800px] " 
-            style={{viewTransitionName: `video-${id}`}}>
-                <source src={data?.video}/>
-                El video no carga en tu dispositivo
-            </video>
-            <video autoPlay loop muted className="rounded-sm absolute aspect-auto w-full contrast-125 blur-3xl inset-0  z-10 max-w-[800px] object-cover transition bg-transparent opacity-40"
-            style={{viewTransitionName: `video-reflection-${id}`}}>
-                <source src={data?.video}/>
-                El video no carga en tu dispositivo
-            </video>
+      <div className="min-h-screen flex items-center justify-center dark:bg-zinc-black dark:text-white">
+        {language === "spanish" ? "Proyecto no encontrado" : "Project not found"}
+      </div>
+    )
+  }
+
+  const labels = [
+    project.company,
+    project.category,
+    ...project.technologies.slice(0, 6),
+  ]
+
+  const imageSlots = [0, 1].map(index => project.images[index] ?? null)
+  const relatedProducts =
+    "relatedProducts" in project ? project.relatedProducts : []
+
+  return (
+    <div className="min-h-screen dark:bg-zinc-black">
+      <NavBarDetails />
+
+      <main className="z-10 mx-auto flex w-full max-w-[900px] flex-col px-3 pb-28 pt-16">
+        <section className="relative mb-6 flex w-full items-center justify-center overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="relative z-20 aspect-video w-full object-cover"
+            style={{ viewTransitionName: `video-${id}` }}
+          >
+            <source src={project.video} />
+            El video no carga en tu dispositivo
+          </video>
+
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 z-10 h-full w-full scale-110 object-cover opacity-40 blur-3xl"
+            style={{ viewTransitionName: `video-reflection-${id}` }}
+          >
+            <source src={project.video} />
+            El video no carga en tu dispositivo
+          </video>
+        </section>
+
+        <section>
+          <div className="mb-3 flex flex-wrap gap-2">
+            {labels.map(label => (
+              <span
+                key={label}
+                className="rounded-full border border-zinc-300 bg-white px-3 py-1 text-[11px] font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+              >
+                {label}
+              </span>
+            ))}
           </div>
-          <div className="max-w-[800px] z-40 px-2 ">
-            <h1 className="sm:text-xl dark:text-yellow-500  font-bold" style={{viewTransitionName: `title-${id}`}}> {data?.title} </h1>
-            <h1 className="text-black dark:text-white overflow-hidden text-xs sm:text-base line-clamp-6" style={{viewTransitionName: `description-${id}`}}> {data?.description} </h1>
+
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-yellow-500">
+            {project.role}
+          </p>
+
+          <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+            <h1
+              className="text-2xl font-bold text-zinc-950 dark:text-yellow-500 sm:text-4xl"
+              style={{ viewTransitionName: `title-${id}` }}
+            >
+              {project.title}
+            </h1>
+
+            <span className="text-sm text-zinc-500 dark:text-zinc-400">
+              {project.dates}
+            </span>
           </div>
-          <div className="max-w-[800px] px-2 flex-col items-start w-full flex my-2">
-            <h1 className="dark:text-white text-xl font-bold">Tecnologías</h1>
-            <div className="flex">
-            {data?.technologies.map(tec=>{
-              return(
-                <div key={crypto.randomUUID()} style={{viewTransitionName: `icon-${tec}-${data.title}`}} className="flex items-center rounded-md border border-zinc-200 hover:border-zinc-900 bg-secondary px-1  dark:text-zinc-300 boder dark:border-zinc-700 dark:hover:border-zinc-100 duration-300 bg-zinc-900 dark:bg-zinc-100">
-                  <Iconst icon={tec} weight={null} />
-                </div>
-              )
-            })}
+
+          <p className="mt-2 text-sm font-medium text-zinc-500 dark:text-zinc-400">
+            {project.category}
+          </p>
+
+          <p
+            className="mt-5 text-sm leading-7 text-zinc-800 dark:text-zinc-100 sm:text-base"
+            style={{ viewTransitionName: `description-${id}` }}
+          >
+            {project.description}
+          </p>
+
+          {project.summary && (
+            <div className="mt-5 rounded-2xl border border-yellow-500/20 bg-yellow-500/10 p-4 text-sm font-medium leading-6 text-zinc-800 dark:text-zinc-200">
+              {project.summary}
             </div>
+          )}
+
+          {project.impact && (
+            <div className="mt-4 rounded-2xl border border-zinc-200 bg-white/70 p-4 text-sm leading-6 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-200">
+              <p className="mb-1 text-xs font-semibold uppercase tracking-[0.2em] text-yellow-500">
+                {language === "spanish" ? "Impacto" : "Impact"}
+              </p>
+              {project.impact}
+            </div>
+          )}
+        </section>
+
+        {project.details?.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+              {language === "spanish" ? "Contexto del proyecto" : "Project context"}
+            </h2>
+
+            <div className="mt-4 grid gap-4">
+              {project.details.map(paragraph => (
+                <p
+                  key={paragraph}
+                  className="rounded-2xl border border-zinc-200 bg-white/70 p-4 text-sm leading-7 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-200 sm:text-base"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {relatedProducts.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+              {language === "spanish" ? "Productos dentro de IkiDev" : "Products inside IkiDev"}
+            </h2>
+
+            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+              {relatedProducts.map(product => (
+                <div
+                  key={product.title}
+                  className="rounded-2xl border border-yellow-500/20 bg-yellow-500/10 p-4"
+                >
+                  <h3 className="text-base font-bold text-zinc-950 dark:text-yellow-500">
+                    {product.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-zinc-800 dark:text-zinc-200">
+                    {product.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+            {language === "spanish" ? "Capturas del producto" : "Product snapshots"}
+          </h2>
+
+          <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            {imageSlots.map((image, index) => (
+              <div
+                key={`${project.id}-image-${index}`}
+                className="flex aspect-video items-center justify-center overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900"
+              >
+                {image ? (
+                  <img
+                    src={image}
+                    alt={`${project.title} snapshot ${index + 1}`}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full flex-col items-center justify-center bg-[linear-gradient(135deg,#f4f4f5,#ffffff)] p-5 text-center dark:bg-[linear-gradient(135deg,#18181b,#09090b)]">
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-yellow-500">
+                      {language === "spanish" ? "Espacio de imagen" : "Image slot"}
+                    </span>
+                    <span className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+                      {project.title}
+                    </span>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
+        </section>
+
+        {project.features?.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+              {language === "spanish" ? "Funcionalidades principales" : "Main features"}
+            </h2>
+
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              {project.features.map(feature => (
+                <div
+                  key={feature}
+                  className="rounded-2xl border border-zinc-200 bg-white/70 p-4 text-sm leading-6 text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/60 dark:text-zinc-200"
+                >
+                  <div className="mb-2 h-1.5 w-8 rounded-full bg-yellow-500" />
+                  {feature}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {project.responsibilities?.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+              {language === "spanish" ? "Responsabilidades técnicas" : "Technical responsibilities"}
+            </h2>
+
+            <ul className="mt-4 grid gap-2">
+              {project.responsibilities.map(responsibility => (
+                <li
+                  key={responsibility}
+                  className="flex gap-3 rounded-xl border border-zinc-200 bg-white/60 p-3 text-sm text-zinc-800 dark:border-zinc-800 dark:bg-zinc-900/40 dark:text-zinc-200"
+                >
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-yellow-500" />
+                  <span>{responsibility}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section className="mt-10">
+          <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+            {language === "spanish" ? "Stack utilizado" : "Tech stack"}
+          </h2>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            {project.technologies.map(tec => (
+              <div
+                key={tec}
+                style={{ viewTransitionName: `icon-${tec}-${project.title}` }}
+                className="flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 duration-300 hover:border-yellow-500 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300"
+              >
+                <Iconst icon={tec} weight={null} />
+                <span>{tec}</span>
+              </div>
+            ))}
           </div>
-          </div>
-        </main>
-      <footer className="fixed bottom-0 z-[9999999] left-1/2 transform -translate-x-1/2 flex items-center justify-center">
-        <DockDemo/>
+        </section>
+
+        {project.links?.length > 0 && (
+          <section className="mt-10">
+            <h2 className="text-xl font-bold text-zinc-950 dark:text-white">
+              {language === "spanish" ? "Enlaces" : "Links"}
+            </h2>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              {project.links.map(link => (
+                <a
+                  key={`${link.type}-${link.href}`}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="rounded-full bg-zinc-950 px-4 py-2 text-xs font-semibold text-white duration-300 hover:bg-yellow-500 dark:bg-white dark:text-zinc-950 dark:hover:bg-yellow-500"
+                >
+                  {link.type}
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+      </main>
+
+      <footer className="fixed bottom-0 z-[9999999] left-1/2 flex -translate-x-1/2 transform items-center justify-center">
+        <DockDemo />
       </footer>
-    </div>
     </div>
   )
 }

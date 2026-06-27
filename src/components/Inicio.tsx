@@ -13,7 +13,7 @@ const Inicio = () => {
     <Navbar/>
     <div className='dark:bg-zinc-black flex h-screen grow flex-1 flex-col'>
       <main className='z-10 grow flex-1'>
-        <div className='flex flex-col grow  max-w-[850px]'>
+        <div className='flex flex-col grow m-2 lg:m-0 max-w-[850px]'>
             <About/>
             <Experience/>
             <Projects/>

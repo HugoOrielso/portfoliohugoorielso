@@ -6,6 +6,60 @@ html {
     scroll-behavior: smooth;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation-duration: 320ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+    animation-name: page-fade-out;
+}
+
+::view-transition-new(root) {
+    animation-name: page-fade-in;
+}
+
+::view-transition-group(video-1),
+::view-transition-group(video-2),
+::view-transition-group(video-3),
+::view-transition-group(video-4),
+::view-transition-group(video-5),
+::view-transition-group(video-6),
+::view-transition-group(title-1),
+::view-transition-group(title-2),
+::view-transition-group(title-3),
+::view-transition-group(title-4),
+::view-transition-group(title-5),
+::view-transition-group(title-6) {
+    animation-duration: 420ms;
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes page-fade-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.985);
+    }
+}
+
+@keyframes page-fade-in {
+    from {
+        opacity: 0;
+        transform: scale(1.01);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
