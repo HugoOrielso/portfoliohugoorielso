@@ -108,7 +108,7 @@ const About = () => {
               )}
             </BlurFade>
 
-            <BlurFade delay={0.35} inView>
+            {/* <BlurFade delay={0.35} inView>
               <div className="mt-3 flex flex-wrap gap-2">
                 {highlights.map(item => (
                   <span
@@ -119,7 +119,7 @@ const About = () => {
                   </span>
                 ))}
               </div>
-            </BlurFade>
+            </BlurFade> */}
           </div>
 
           <div className="flex flex-wrap items-center w-full gap-2 py-1">
