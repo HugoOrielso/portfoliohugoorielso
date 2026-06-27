@@ -14,7 +14,7 @@ const About = () => {
 
   return (
     <section
-      className="flex pt-8 sm:pt-10 relative w-full items-center justify-center gap-10 overflow-hidden"
+      className="flex pt-12 sm:pt-10 relative w-full items-center justify-center gap-10 overflow-hidden"
       id="about"
     >
       <div className="relative flex w-full flex-col items-start justify-start overflow-hidden rounded-lg bg-background">
@@ -41,10 +41,8 @@ const About = () => {
               <BlurFade delay={0.05}>
                 <img
                   src={imageCV}
-                  width="100%"
-                  height="100%"
                   alt="Hugo Orielso Cañas Lozano"
-                  className="object-cover aspect-square rounded-full w-24 h-24 border border-zinc-300 dark:border-zinc-700"
+                  className="object-contain  rounded-md size-36 "
                 />
               </BlurFade>
             </div>
@@ -60,7 +58,7 @@ const About = () => {
             <BlurFade delay={0.25} inView>
               {isSpanish ? (
                 <p className="dark:text-zinc-200 text-zinc-900 text-xs block w-full sm:text-base my-2 duration-300 text-balance leading-6">
-                  <span className="text-yellow-500 font-bold">Full Stack Engineer</span> con más de{' '}
+                  <span className="text-yellow-500 font-bold">Full Stack Engineer</span> {' '}
                   <span className="text-yellow-500 font-bold">3 años de experiencia</span> desarrollando
                   plataformas web, APIs y soluciones analíticas de alto impacto. Me especializo en construir
                   sistemas end-to-end que integran{' '}
@@ -75,7 +73,7 @@ const About = () => {
                 </p>
               ) : (
                 <p className="dark:text-zinc-200 text-zinc-900 text-xs block w-full sm:text-base my-2 duration-300 text-balance leading-6">
-                  <span className="text-yellow-500 font-bold">Full Stack Engineer</span> with more than{' '}
+                  <span className="text-yellow-500 font-bold">Full Stack Engineer</span> with {' '}
                   <span className="text-yellow-500 font-bold">3 years of experience</span> building web platforms,
                   APIs and high-impact analytics solutions. I specialize in developing end-to-end systems that
                   combine{' '}
