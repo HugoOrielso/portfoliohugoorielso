@@ -11,23 +11,6 @@ const About = () => {
 
   const isSpanish = language === 'spanish'
 
-  const highlights = isSpanish
-    ? [
-        'Full Stack',
-        'BigQuery',
-        'Mapbox GL',
-        'Dashboards',
-        'APIs REST',
-        'CI/CD',
-      ]
-    : [
-        'Full Stack',
-        'BigQuery',
-        'Mapbox GL',
-        'Dashboards',
-        'REST APIs',
-        'CI/CD',
-      ]
 
   return (
     <section
